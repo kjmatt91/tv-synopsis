@@ -18,6 +18,10 @@
   },
   "homepage": "https://github.com/kjmatt91/tv-synopsis#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "pug-lint": "^2.6.0"
   }
 }
