@@ -1,0 +1,13 @@
+html
+    head
+        link(rel = "stylesheet" href = "/css/styles.css")
+    body 
+        h1 Kim's Convenience 
+        h2 Season 1
+        table(style = 'width:500px', border ='1')
+            for seasons in data 
+                tr 
+                    td(class = "number")=data.seasons.number 
+                    td(class = "title")=data.seasons.episodes.title 
+                    td(class = "director")=data.seasons.episodes.director 
+                    td(class = "synopsis")=data.seasons.episodes.synopsis
