@@ -1,0 +1,17 @@
+include partials/head.pug
+div 
+h1 Kim's Convenience 
+    div 
+        h2 Season #{seasons.number}
+        table(id='showdatatable')
+            tr 
+                th No.
+                th Title
+                th Director 
+                for episode in seasons.episodes 
+                    tr 
+                        td(class='number')= episode.number 
+                        td(class='title')= episode.title 
+                        td(class='director')= episode.director 
+                    tr 
+                        td(colspan=3)(class='synopsis')= episode.synopsis

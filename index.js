@@ -1,16 +1,23 @@
 const express = require('express')
-const app = express()
-const data = require('./showdata')
+const showdata = require('./showdata')
 
-app.set('view engine', 'pug')
+const app = express()
+
 app.use(express.static('public'))
+app.set('view engine', 'pug')
 
 app.get('/', (request, response) => {
-    response.render('index', (data))
+    response.render('index', { showdata })
 })
 
-app.get('/', (request, response) => {
-    response.render('season1', (data))
+app.get('/season/:number', (request, response) => {
+    const seasons = showdata.seasons.find((seasons) => { return seasons.number === parseInt(request.params.number) })
+    
+    return response.render('seasons', { seasons })
+})
+
+app.all('*', (request, response) => {
+    return response.status(404).send('Sorry, request not found')
 })
 
 

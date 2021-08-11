@@ -1,23 +1,18 @@
 html
     head 
-        link(rel = "stylesheet" href = "/css/styles.css")
+        link(rel="stylesheet" href="/css/styles.css")
     body 
-        h1 Kim's Convenience 
-        h2 Developed By
-            ul
-                li Ins Choi 
-                li Kevin White 
-        h2 Starring 
-            ul 
-                li Paul Sun-Hyung Lee 
-                li Jean Yoon 
-                li Andrea Bang 
-                li Simu Liu 
-                li Andrew Phung 
-                li Nicole Power 
-        h2 Seasons 
-            ul
-                li Season 1
-                li Season 2
-                li Season 3
-                li Season 4
+        h1= showdata.title
+            h2(class = 'frontList')= 'Developed By'
+                ul
+                    for developedBy in showdata.developedBy
+                        li=developedBy
+            h2(class = 'frontList')= 'Starring'
+                ul 
+                    for starring in showdata.starring 
+                        li=starring
+            h2(class = 'frontList') Seasons 
+                ul
+                    for season in showdata.seasons
+                        li
+                            a(href = '/season/' + season.number) Season #{season.number}
